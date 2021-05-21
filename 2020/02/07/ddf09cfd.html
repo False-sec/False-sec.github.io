@@ -1,0 +1,873 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>考试复习 | False</title><meta name="keywords" content="Crypto"><meta name="author" content="False"><meta name="copyright" content="False"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="古典密码参考连接：https:&#x2F;&#x2F;howiezhao.github.io&#x2F;2018&#x2F;08&#x2F;10&#x2F;classical-crypto&#x2F; 凯撒密码凯撒密码是单表替换密码，加密规则简单，主要分为两种，向右移动与向左移动 1234567891011例如：对Hello 进行加密，要求右移三位根据字母表将每个字母右移三位即可，大小写根据题目要求来写H -&gt; Ke -&gt; hl -&gt; ol -&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="考试复习">
+<meta property="og:url" content="http://blog.falsectf.top/2020/02/07/ddf09cfd.html">
+<meta property="og:site_name" content="False">
+<meta property="og:description" content="古典密码参考连接：https:&#x2F;&#x2F;howiezhao.github.io&#x2F;2018&#x2F;08&#x2F;10&#x2F;classical-crypto&#x2F; 凯撒密码凯撒密码是单表替换密码，加密规则简单，主要分为两种，向右移动与向左移动 1234567891011例如：对Hello 进行加密，要求右移三位根据字母表将每个字母右移三位即可，大小写根据题目要求来写H -&gt; Ke -&gt; hl -&gt; ol -&amp;g">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.falsectf.top/img/1.jpg">
+<meta property="article:published_time" content="2020-02-07T05:01:47.000Z">
+<meta property="article:modified_time" content="2021-05-11T13:56:07.815Z">
+<meta property="article:author" content="False">
+<meta property="article:tag" content="Crypto">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.falsectf.top/img/1.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://blog.falsectf.top/2020/02/07/ddf09cfd"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c2d67b7793208bb8ca055de1d9778576";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '考试复习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-11 21:56:07'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="False" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/featureimages/16.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">False</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">考试复习<a class="post-edit-link" href="null_posts/考试复习.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-02-07T05:01:47.000Z" title="发表于 2020-02-07 13:01:47">2020-02-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-11T13:56:07.815Z" title="更新于 2021-05-11 21:56:07">2021-05-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Crypto/">Crypto</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="考试复习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="古典密码"><a href="#古典密码" class="headerlink" title="古典密码"></a>古典密码</h2><p>参考连接：<a target="_blank" rel="noopener" href="https://howiezhao.github.io/2018/08/10/classical-crypto/">https://howiezhao.github.io/2018/08/10/classical-crypto/</a></p>
+<h3 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h3><p>凯撒密码是单表替换密码，加密规则简单，主要分为两种，向右移动与向左移动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">例如：对Hello 进行加密，要求右移三位</span><br><span class="line">根据字母表将每个字母右移三位即可，大小写根据题目要求来写</span><br><span class="line">H -&gt; K</span><br><span class="line">e -&gt; h</span><br><span class="line">l -&gt; o</span><br><span class="line">l -&gt; o</span><br><span class="line">o -&gt; r</span><br><span class="line"></span><br><span class="line">经替换加密结果：Khoor，整体右移了三位</span><br><span class="line">解密方法与加密相反，左移三位即可</span><br><span class="line">移动13位是一个特例，也叫做ROT13加密，方法相同</span><br></pre></td></tr></table></figure>
+
+<p>下方是一个移动一位与三位的对照表</p>
+<p><img src="/images/crypto/%E5%87%AF%E6%92%92-1.png"></p>
+<hr>
+<h3 id="培根密码"><a href="#培根密码" class="headerlink" title="培根密码"></a>培根密码</h3><p>培根密码(Bacon’s cipher)加密时，明文中的每个字母都会转换成一组5个英文字母。(会有编码替换表)</p>
+<p>例如加密：Hello</p>
+<p><strong>常见</strong>加密后的形式为AB组成的字符串，<strong>长度为5的倍数</strong>，因为每个字母替换为对应的5个字母</p>
+<p>明文<code>hello</code>的密文为<code>AABBBAABAAABABBABABBABBBA</code></p>
+<p><strong>少见</strong>加密后形式：</p>
+<p>例如给了一句英语短句，大写代表A，小写代表B，整体字母长度一定是5的倍数</p>
+<p>或者是 加粗代表A，正常代表B等等</p>
+<hr>
+<h3 id="维吉尼亚密码"><a href="#维吉尼亚密码" class="headerlink" title="维吉尼亚密码"></a>维吉尼亚密码</h3><p>下方是加密替换表</p>
+<p><img src="/images/crypto/vigenere.png"></p>
+<p>这一表格包括了26行字母表，每一行都由前一行向左偏移1位得到。**<font color="ff0000">行为明文行，列为密钥列，密文位于表格内。</font>**</p>
+<h4 id="加密规则："><a href="#加密规则：" class="headerlink" title="加密规则："></a>加密规则：</h4><p>​    例如加密明文：HELLOFALSE              密钥为FALSE</p>
+<p>​    首先，取明文第一位H，取H行，然后取密钥第一位F，取F列 ——&gt; <strong>H行F列—&gt;M</strong></p>
+<p>​    这样就将 <strong>H</strong> 替换为了 <strong>M</strong></p>
+<p>​    其余的字母加密以此类推，<strong>注意：</strong>密钥长度小于明文长度时，循环使用。当E用完后右回到F继续循环。</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">H行，F列 ——&gt; M</span><br><span class="line">E行，A列 ——&gt; E</span><br><span class="line">L行，L列 ——&gt; W</span><br><span class="line">L行，S列 ——&gt; D</span><br><span class="line">O行，E列 ——&gt; S</span><br><span class="line">F行，F列 ——&gt; K</span><br><span class="line">A行，A列 ——&gt; A</span><br><span class="line">L行，L列 ——&gt; W</span><br><span class="line">S行，S列 ——&gt; G</span><br><span class="line">E行，E列 ——&gt; I</span><br><span class="line">加密后的结果：MEWDSKAWGI</span><br></pre></td></tr></table></figure>
+
+<h4 id="解密规则："><a href="#解密规则：" class="headerlink" title="解密规则："></a>解密规则：</h4><p><strong>此处解密有两种方法，基本没有差别</strong></p>
+<p><code>1.查找密钥字母行，找到密文字母 ——&gt; 所对应的列就是明文字母</code></p>
+<p><code>2.查找密钥字母列，找到密文字母 ——&gt; 所对应的行就是明文字母</code></p>
+<p>（以上两种都是一位一位的取，循环取值找值即可）</p>
+<p>首先取密钥第一个字母F，找到F行，取加密后第一个字母M，在F行种找到字母M ——&gt;找到F行字母M对应的列 ——&gt;H，即为解密结果</p>
+<p>以此类推即可，密钥循环使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">密钥取F，密文取M，F行字母M对应的列为：H</span><br><span class="line">密钥取A，密文取E，A行字母E对应的列为：E</span><br><span class="line">密钥取L，密文取W，L行字母W对应的列为：L</span><br><span class="line">密钥取S，密文取D，S行字母D对应的列为：L</span><br><span class="line">密钥取E，密文取S，E行字母S对应的列为：O</span><br><span class="line">密钥取F，密文取K，F行字母K对应的列为：F</span><br><span class="line">密钥取A，密文取A，A行字母A对应的列为：A</span><br><span class="line">密钥取L，密文取W，L行字母W对应的列为：L</span><br><span class="line">密钥取S，密文取G，S行字母G对应的列为：S</span><br><span class="line">密钥取E，密文取I，E行字母I对应的列为：E</span><br><span class="line">这样就计算出了明文信息：HELLOFALSE</span><br></pre></td></tr></table></figure>
+
+<h4 id="第二种算法"><a href="#第二种算法" class="headerlink" title="第二种算法"></a>第二种算法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">加密：</span><br><span class="line">1.将明文与密钥替换为对应26个字母的数字，从0开始到25</span><br><span class="line">2.取明文数字+对应位的密钥数字 mod 26 = 对应密文的数字</span><br><span class="line">3.根据密文数字找到对应字母即可</span><br><span class="line">解密：</span><br><span class="line">1.用密文字母对应数字 mod 26 - 密钥字母对应数字 = 明文字母</span><br><span class="line">（密钥长度小于明文长度时，循环使用）</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/images/crypto/vigenere-2.png"></p>
+<hr>
+<h3 id="栅栏密码–置换密码"><a href="#栅栏密码–置换密码" class="headerlink" title="栅栏密码–置换密码"></a>栅栏密码–置换密码</h3><p>栅栏密码(Rail fence cipher)，就是把要加密的明文分成n个一组，然后把每组的第一个字连起来，紧接着把每组的第二个字连起来，以此类推，形成一段无规律的话。</p>
+<h4 id="加密规则"><a href="#加密规则" class="headerlink" title="加密规则"></a>加密规则</h4><p>例如加密数据：Hello False</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">假如分为2组，5个字母一组</span><br><span class="line">	Hello</span><br><span class="line">	False</span><br><span class="line">取每组的第一个字母组合：HF</span><br><span class="line">取每组的第二个字母组合：ea</span><br><span class="line">取每组的第三个字母组合：ll</span><br><span class="line">取每组的第四个字母组合：ls</span><br><span class="line">取每组的第五个字母组合：oe</span><br><span class="line">加密结果：HFeal llsoe</span><br></pre></td></tr></table></figure>
+
+<h4 id="解密规则"><a href="#解密规则" class="headerlink" title="解密规则"></a>解密规则</h4><p>正确方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.去掉空格：HFealllsoe</span><br><span class="line">2.分成5栏：HF、ea、ll、ls、oe</span><br><span class="line">3.取出每栏第1个字母：Hello</span><br><span class="line">4.取出每栏第2个字母：False</span><br><span class="line">4.依次类推</span><br><span class="line">5.连在一起：HelloFalse</span><br><span class="line">6.加上适当空格：Hello False</span><br></pre></td></tr></table></figure>
+
+<p>注意：这里栅栏的栏数取决于n的取值，一般而言，<strong>n要整除字母数，n不可能大于或等于字母数</strong>，当不知道n为多少时，可采用穷举法一个个试。</p>
+<p>小技巧</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">根据上述密文：HFeal llsoe</span><br><span class="line">因为加密时是将数据分为了两组，所以这里依次取值排成两组即可</span><br><span class="line">H F</span><br><span class="line">e a</span><br><span class="line">l l</span><br><span class="line">l s</span><br><span class="line">o e</span><br><span class="line">竖着读一下就能知道明文了：Hello False</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<hr>
+<h3 id="Playfair-密码"><a href="#Playfair-密码" class="headerlink" title="Playfair 密码"></a>Playfair 密码</h3><p>推荐B站UP视频讲解：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zE411i7TU">https://www.bilibili.com/video/BV1zE411i7TU</a></p>
+<p>普莱费尔密码（英文：Playfair cipher 或 Playfair square）是一种使用一个关键词方格来加密字符对的加密法，1854年由<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%80%E4%BD%8D%E5%90%8D%E5%8F%AB%E6%9F%A5%E5%B0%94%E6%96%AF%C2%B7%E6%83%A0%E6%96%AF%E9%80%9A/10168121">一位名叫查尔斯·惠斯通</a>（Charles</p>
+<p> Wheatstone）的英国人发明。</p>
+<p><strong>加密算法：</strong></p>
+<p><u>该加密算法可横向填充也可纵向填充，下方列举的是横向填充。</u></p>
+<p><strong>第一步：编制密码表</strong></p>
+<p>首先，编制一个5*5大小的表格，用于存放密钥</p>
+<p>一共有26个字母，为什么用5*5的方格呢？因为大写i和大写j被当作一个字母来看。</p>
+<p>密钥填充的规则如下：</p>
+<p>​    从左向右从上向下依次填充密钥的字母，如果遇到重复字母将其跳过填充密钥的下一个字母，直至密钥全部填充到5<em>5的放格中，如果未填满，按照字母表的顺序，从A-Z依次将未出现的字母填充至5</em>5的方格中，直至填满为止，现在方格中填满了25个无重复的字母。</p>
+<p>​    当填充i或j的时候表示：i(j)  或 i/j  注意是大写！</p>
+<p>举例：</p>
+<p>​    密钥为False test Playfair cipher</p>
+<table>
+<thead>
+<tr>
+<th>F</th>
+<th>A</th>
+<th>L</th>
+<th>S</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T</td>
+<td>P</td>
+<td>V</td>
+<td>I/J或I(J)</td>
+<td>R</td>
+</tr>
+<tr>
+<td>C</td>
+<td>H</td>
+<td>B</td>
+<td>D</td>
+<td>G</td>
+</tr>
+<tr>
+<td>K</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>Q</td>
+</tr>
+<tr>
+<td>U</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+</tr>
+</tbody></table>
+<p>到这里，我们的密钥填充完毕了，可以发现密钥中重复的字符只记录第一次出现,重复出现跳过，从B字符开始就已经填充完毕密钥了，后面按照字母表顺序进行填充(当然要跳过已经出现的字母)。</p>
+<p><strong>第二步：整理明文,进行加密</strong></p>
+<p>一般情况：</p>
+<p>假如我要加密明文字符串：Falseabd</p>
+<p>先将字符串分为两两一组：Fa,ls,ea,bz</p>
+<p>然后每一组去按照表格进行加密替换，替换规则如下：</p>
+<p>​    <strong>明文两个字母相同行时：</strong></p>
+<p>​    Fa,ls,ea都是在表格的同一行中，他们的替换规则相同——&gt;根据矩阵替换为该字母的下一个字母</p>
+<p>​    Fa ——&gt; AL</p>
+<p>​    ls  ——&gt; SE</p>
+<p>​    <font color="ff0000">ea ——&gt; FL</font></p>
+<p><font color="ff0000"> 注意：在根据矩阵密钥进行替换时，如果遇到该行最后一个字符，不去下一行进行查找，而是该行第一个开始循环</font></p>
+<p><strong>明文两个字母不同行时：</strong></p>
+<p>这里B与Z互为对角，找到两个值相连组成的表格如下</p>
+<table>
+<thead>
+<tr>
+<th><font color="ff0000">B</font></th>
+<th>D</th>
+<th>G</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>N</td>
+<td>O</td>
+<td>Q</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Y</td>
+<td><font color="ff0000">Z</font></td>
+</tr>
+</tbody></table>
+<p>可以发现，B同行另一侧是G，Z同行另一侧是X  替换：bz——&gt;GX</p>
+<p>最后加密的字符串为：ALSEAEGX   均为大写</p>
+<p><strong>特殊情况：</strong></p>
+<p>特殊情况在视频的11：38处开始</p>
+<p><strong>1.加密明文中存在 aabc类型时</strong></p>
+<p>此时，可以分为两组：aa,bc</p>
+<p><del>按照上面的一般规则应该替换为：aa——&gt;LL , bc——&gt;DH</del>    这种方法是错误的</p>
+<p>这里用到方法：<font color="ff0000">同插缺补</font> 出自UP视频</p>
+<p>这里明文是aabc，aa相同，所以采用<font color="ff0000">同插</font>方法</p>
+<p>​    将aa中间插入一个其他字符，按照字母表的顺序，A-Z，A不行，与aa再次相同，所以这里选用B</p>
+<p>​    所以原明文变为：ababc  分组——&gt; ab,ab,c</p>
+<p><strong>2.加密明文字符串长度为奇数时</strong></p>
+<p>这里可以根据1中的同插后发现字符长度变为了奇数，两两分组时出现了单个的情况</p>
+<p>这里采用<font color="ff0000">缺补</font>的方法：</p>
+<p>ab,ab,c  在c的后面插入一个字符，同样按照字母表A-Z的顺序，只要出现第一个与c不同字符即可</p>
+<p>ab,ab,c  ——&gt; ab,ab,ca ，可以发现在补a的情况就已经满足了，无需再补了</p>
+<p>之后的加密方法同上的一般方法进行加密即可</p>
+<p>解密方法就是加密方法的逆过程</p>
+<p><strong>总结：</strong></p>
+<p>解密规则</p>
+<p> （1） 若c1 c2在同一行，对应明文p1 p2分别是紧靠c1 c2 左端的字母。其中最后一列被看做是第一列的左方。</p>
+<p> （2） 若c1 c2在同一列，对应明文p1 p2分别是紧靠c1 c2 上方的字母。其中最后一行被看做是第一行的上方。</p>
+<p> （3）若c1 c2不在同一行，不在同一列，则p1 p2是由c1 c2确定的矩形的其他两角的字母。</p>
+<p>加密规则</p>
+<p> （1）若p1 p2在同一行，对应密文c1 c2分别是紧靠p1 p2 右端的字母。其中第一列被看做是最后一列的右方。</p>
+<p> （2） 若p1 p2在同一列，对应密文c1 c2分别是紧靠p1 p2 下方的字母。其中第一行被看做是最后一行的下方。</p>
+<p> （3）若p1 p2不在同一行，不在同一列，则c1 c2是由p1 p2确定的矩形的其他两角的字母（至于横向替换还是纵向替换要事先约好，或自行尝试）。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xdjun/p/7469841.html">https://www.cnblogs.com/xdjun/p/7469841.html</a></p>
+<p>例题举例：</p>
+<p><img src="/images/crypto/%E5%AF%86%E7%A0%811.png"></p>
+<p>1.创建密钥矩阵如下，按照规则，字母全是大写</p>
+<table>
+<thead>
+<tr>
+<th>R</th>
+<th>O</th>
+<th>Y</th>
+<th>A</th>
+<th>L</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>N</td>
+<td>E</td>
+<td>W</td>
+<td>Z</td>
+<td>D</td>
+</tr>
+<tr>
+<td>V</td>
+<td><font color="ff0000">B</font></td>
+<td>C</td>
+<td>F</td>
+<td>G</td>
+</tr>
+<tr>
+<td>H</td>
+<td>I/J</td>
+<td>K</td>
+<td>M</td>
+<td>P</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>X</td>
+</tr>
+</tbody></table>
+<p>答案如上图所示，从B开始为按照字母表顺序填充，跳过已经出现的重复字符</p>
+<p>2.这里题目说分组方式为每组一个字母，按列循环，右移三格</p>
+<h3 id="矩阵（列）换位密码"><a href="#矩阵（列）换位密码" class="headerlink" title="矩阵（列）换位密码"></a>矩阵（列）换位密码</h3><p>解题思路总结：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.查看题目给的密钥是不是数字的</span><br><span class="line">	是——&gt;直接画表，列为密钥数字，将明文信息横向填入表格中</span><br><span class="line">	否——&gt;将密钥字母转换为数字的格式，查找其在字母表中优先出现的次序</span><br><span class="line">2.输出加密结果：</span><br><span class="line">	从第 1 列开始，竖着读，进行输出 以此类推</span><br><span class="line">(横向输入，纵向输出)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><img src="/images/crypto/%E5%AF%86%E7%A0%812.png"></p>
+<p>解题如下</p>
+<p>1.首先是画出表格，列为621354</p>
+<p>然后根据题目要求将明文填入（横向填入）</p>
+<table>
+<thead>
+<tr>
+<th>6</th>
+<th>2</th>
+<th>1</th>
+<th>3</th>
+<th>5</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T</td>
+<td>H</td>
+<td>E</td>
+<td>W</td>
+<td>O</td>
+<td>R</td>
+</tr>
+<tr>
+<td>L</td>
+<td>D</td>
+<td>O</td>
+<td>W</td>
+<td>E</td>
+<td>S</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>O</td>
+<td>U</td>
+<td>N</td>
+<td>O</td>
+<td>T</td>
+</tr>
+<tr>
+<td>H</td>
+<td>I</td>
+<td>N</td>
+<td>G</td>
+<td>I</td>
+<td>T</td>
+</tr>
+<tr>
+<td>W</td>
+<td>A</td>
+<td>S</td>
+<td>H</td>
+<td>E</td>
+<td>R</td>
+</tr>
+<tr>
+<td>E</td>
+<td>F</td>
+<td>I</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+</tr>
+</tbody></table>
+<p>2.明文填入已经完成，接下来按列读取即可，从第<strong>1</strong>列开始，竖着读</p>
+<p>EOUNSI HDOIAF WWNGHR RSTTRT OEOIES TLYHWE   中间空格可以去掉，根据题目要求来</p>
+<p><strong>注意：</strong>如果加密密钥不是直接给的数字，而是单词，例如：study</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">首先对密钥 study 在字母表优先出现的次序进行排序：</span><br><span class="line">abcdefghijklmnopqrstuvwxyz</span><br><span class="line">s-&gt;2</span><br><span class="line">t-&gt;3</span><br><span class="line">u-&gt;4</span><br><span class="line">d-&gt;1</span><br><span class="line">y-&gt;5</span><br><span class="line">(study中，d在字母表的最前面所以是1，以此类推)</span><br><span class="line">所以密钥为study时，等价于密钥为23415，按照23415列换位加密即可</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><img src="/images/crypto/%E5%88%97%E6%8D%A2%E4%BD%8D1.png"></p>
+<hr>
+<h3 id="螺旋置换"><a href="#螺旋置换" class="headerlink" title="螺旋置换"></a>螺旋置换</h3><p><img src="/images/crypto/%E8%9E%BA%E6%97%8B%E7%BD%AE%E6%8D%A2.png"></p>
+<h3 id="RSA加密与解密"><a href="#RSA加密与解密" class="headerlink" title="RSA加密与解密"></a>RSA加密与解密</h3><p>简单原理如下图</p>
+<p><img src="/images/crypto/RSA.png"></p>
+<p>c:明文，m:密文</p>
+<p>RSA加密过程：c = m ^ e mod n         加密用公钥e</p>
+<p>RSA解密过程：m = c ^ d mod n         解密用私钥d</p>
+<p>例题：RSA 是典型的公钥密码体制，现截获某用户使用公钥加密并发送的密文为 9，公钥 e 为 13，p=17， q=5，试求出私钥 d 和用户发送的明文。 </p>
+<p>根据上面公式<strong>求d</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n=p*q</span><br><span class="line">φ(n)=(p-1)*(q-1)</span><br><span class="line">de mod φ(n)=1</span><br><span class="line">d*13%64=1</span><br><span class="line">所以可以推算出d=5   或(64+1)/13=5</span><br></pre></td></tr></table></figure>
+
+<p>验证脚本，需要安装gmpy2</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#python2</span></span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">p,q,e = gmpy2.mpz(<span class="number">17</span>),gmpy2.mpz(<span class="number">5</span>),gmpy2.mpz(<span class="number">13</span>)</span><br><span class="line">L = (p - <span class="number">1</span>) * (q - <span class="number">1</span>)</span><br><span class="line">d = gmpy2.invert(e,L)</span><br><span class="line"><span class="built_in">print</span> d</span><br></pre></td></tr></table></figure>
+
+<p>d求完了，接下来是<strong>求明文m</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">m = c^d mod n</span><br><span class="line"></span><br><span class="line">c=9,d=5,n=p*q=85</span><br><span class="line"></span><br><span class="line">所以 m = 9^5 % 85=59</span><br><span class="line">9^5=59049   59049/85=694   59049-694*85=59</span><br></pre></td></tr></table></figure>
+
+<p>验证脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#python2</span></span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">c=<span class="number">9</span></span><br><span class="line">d=<span class="number">5</span></span><br><span class="line">n=<span class="number">17</span>*<span class="number">5</span></span><br><span class="line">m=<span class="built_in">pow</span>(c,d,n)</span><br><span class="line"><span class="built_in">print</span> m</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>RSA加密</strong></p>
+<p>例：p=17,q=5,e=3,m=12请求出加密后的c</p>
+<p>这里e给的比较小，方便口算掌握原理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> n = p*q</span><br><span class="line">根据 c = pow(m,e,n)  对m进行加密</span><br><span class="line"></span><br><span class="line">c = m ^ e % n</span><br><span class="line">  = 12^3 % 85</span><br><span class="line">  =28</span><br></pre></td></tr></table></figure>
+
+<p>脚本验证：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#python2</span></span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">m = <span class="number">12</span></span><br><span class="line">e = <span class="number">3</span></span><br><span class="line">n = <span class="number">17</span>*<span class="number">5</span></span><br><span class="line">c = <span class="built_in">pow</span>(m,e,n)  <span class="comment">#   m ^ e % n</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;密文c=&quot;</span>,c <span class="comment">#28</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>RSA求公钥与私钥</strong></p>
+<p>问题：令p=3 , q=11,求公钥(e,n)，私钥(d,n)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">分析：</span><br><span class="line">	已知p和q可以推出n，f(n)</span><br><span class="line">	没有给出e，从3,5,7开始逐个取选取一个合适的</span><br><span class="line">	利用d,e,f(n)求出d</span><br></pre></td></tr></table></figure>
+
+<p>注意：<strong>f(n)与e互质</strong>，计算如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.求n：n=p*q=33</span><br><span class="line">2.求f(n)：f(n)=(p-1) * (q-1) = 20</span><br><span class="line">3.设(取)e=3,因为3与f(n) 20互质</span><br><span class="line">4.根据公式：de = 1 mod f(n)</span><br><span class="line">		  d*3 = 1 mod 20    (可以理解为3*d%20=1)</span><br><span class="line">		  ——&gt; d=7</span><br><span class="line">5.所以 公钥(e,n)=(3,33)，私钥(d,n)=(7,33)</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="EDS-S盒"><a href="#EDS-S盒" class="headerlink" title="EDS-S盒"></a>EDS-S盒</h3><p>在密码学中，S盒(Substitution-box)是对称密钥算法执行置换计算的基本结构。S盒用在分组密码算法中，是唯一的<strong>非线性结构</strong>，其S盒的指标的好坏直接决定了密码算法的好坏。</p>
+<p>每组S盒是由长16宽4组成的一个矩形</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">下方例题考察是S盒问题，输入6位，输出4位</span><br><span class="line"></span><br><span class="line">1.将输入的6位二进制数取头尾组合算出对应十进制</span><br><span class="line"></span><br><span class="line">2.将输入的6位二进制数取中间4位算出对应十进制</span><br><span class="line"></span><br><span class="line">3.用第一和第二步算出的两个值当作点坐标(1，2) 去对应盒中查找坐标对应的十进制数值</span><br><span class="line"></span><br><span class="line">4.将十进制转化为对应的二进制数，即为该盒输入4位二进制数对应的输出</span><br><span class="line">这样，就输出了每组S盒 输入值对应的9个二进制数,也就是替换后的值</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/crypto/DES.png"></p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangccc/p/5385695.html">https://www.cnblogs.com/wangccc/p/5385695.html</a></p>
+<p>这里一共有5个盒，将表格截取为五个小表格，不包含S1-S5所在行</p>
+<p><img src="/images/crypto/DES1.png"></p>
+<p>如上图，为S1盒，输入为110010，根据上方博客链接的方法</p>
+<p>1.取输入数据头尾：10（二进制）——&gt; 2（十进制）    2行</p>
+<p>2.取输入数据中间：1001（二进制）——&gt; 9（十进制） 9列</p>
+<p>根据1 2步取出的坐标值(2，9)，找到对应的数据为12</p>
+<p>3.将值12转化为二进制=1100，S1输出结果为1100</p>
+<p>则S1对应输出为：1100</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S1(110010)=S1(10,1001)=S1(2,9)=12=1100</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>求S2，S2输入：010011</p>
+<p><img src="/images/crypto/DES2.png"></p>
+<p>同上方法</p>
+<p>1.取输入数据头尾：01——&gt; 1   1行</p>
+<p>2.取输入数据中间：1001——&gt; 9 列</p>
+<p>根据1 2步取出的坐标值(1，9)，找到对应的数据为0</p>
+<p>3.将值0转化为二进制=0，S2输出结果为0</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S2(010011)=S1(01,1001)=S1(1,9)=0=0000</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>求S3，S3输入：101011</p>
+<p><img src="/images/crypto/DES3.png"></p>
+<p>1.取输入数据头尾：11（二进制）——&gt; 3（十进制）  3行</p>
+<p>2.取输入数据中间：0101（二进制）——&gt; 5（十进制）5列</p>
+<p>根据1 2步取出的坐标值(3，5)，找到对应的数据为9</p>
+<p>3.将值9转化为二进制=1001，S3输出结果为1001</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S3(101011)=S3(11,0101)=S3(3,5)=9=1001</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>求S4，S4输入：111001</p>
+<p><img src="/images/crypto/DES4.png"></p>
+<p>1.取输入数据头尾：11（二进制）——&gt; 3（十进制）  3行</p>
+<p>2.取输入数据中间：1100（二进制）——&gt; 12（十进制）12列</p>
+<p>根据1 2步取出的坐标值(3，12)，找到对应的数据为12</p>
+<p>3.将值12转化为二进制=1100，S4输出结果为1100</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S4(111001)=S4(11,1100)=S4(3,12)=12=1100</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>求S5，S5输入：000101</p>
+<p><img src="/images/crypto/DES5.png"></p>
+<p>1.取输入数据头尾：01（二进制）——&gt; 1（十进制）  1行</p>
+<p>2.取输入数据中间：0010（二进制）——&gt; 2（十进制）2列</p>
+<p>根据1 2步取出的坐标值(1，2)，找到对应的数据为2</p>
+<p>3.将值2转化为二进制=10，S5输出结果为10</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S5(000101)=S5(01,0010)=S5(1,2)=2=0010</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>综上计算结果：S1输出结果为1100，S2输出结果为0000，S3输出结果为1001，S4输出结果为1100，S5输出结果为0010</p>
+<hr>
+<h3 id="MD5-信息摘要算法-消息鉴别"><a href="#MD5-信息摘要算法-消息鉴别" class="headerlink" title="MD5-信息摘要算法-消息鉴别"></a>MD5-信息摘要算法-消息鉴别</h3><p>MD5-信息摘要算法-消息鉴别—&gt;理解为身份认证</p>
+<p><strong>MD5信息摘要算法</strong>（英语：MD5 Message-Digest Algorithm）消息摘要算法</p>
+<p>不是加密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MD5算法的原理可简要的叙述为：MD5码以512位分组来处理输入的信息，且每一分组又被划分为16个32位子分组，</span><br><span class="line">经过了一系列的处理后，算法的输出由四个32位分组组成，将这四个32位分组级联后将生成一个128位散列值</span><br></pre></td></tr></table></figure>
+
+<p>MD5算法的原理可简要的叙述为：MD5码以<font color="ff0000">512位分组</font>来处理输入的信息，且每一分组又被划分为<font color="ff0000">16个32位子分组</font>，经过了一系列的处理后，算法的输出由四个32位分组组成，将这四个32位分组级联后将<font color="ff0000">生成一个128位</font>散列值</p>
+<h3 id="SHA-安全散列算法-数字签名"><a href="#SHA-安全散列算法-数字签名" class="headerlink" title="SHA-安全散列算法-数字签名"></a>SHA-安全散列算法-数字签名</h3><p><strong>安全散列算法</strong>（英语：Secure Hash Algorithm，缩写为SHA）</p>
+<p>不是加密</p>
+<p><code>SHA是公认的最安全的散列算法之一</code></p>
+<p><code>加密后的字符串位数固定</code></p>
+<p><code>SHA的算法安全性比MD5要高</code></p>
+<h3 id="PGP-优良保密协议"><a href="#PGP-优良保密协议" class="headerlink" title="PGP-优良保密协议"></a>PGP-优良保密协议</h3><p><strong>PGP</strong>（英语：Pretty Good Privacy，中文翻译“优良保密协议”）</p>
+<p>将公开密钥加密（非对称加密）与传统加密（对称加密）相结合的一种加密技术</p>
+<p>非对称：加密与解密密钥不同（公钥加密、私钥解密）</p>
+<p>对称：加密与解密共用一个密钥</p>
+<p><strong>主要功能：</strong></p>
+<p>PGP主要功能是加密重要文件和电子邮件，以保证他们在网络上安全传输，或者为文件数字签名，以防止伪造和篡改。主要包括：</p>
+<p>​    1.使用对称加密算法IDEA对存储在计算机上的文件加密。</p>
+<p>​    2.使用公开密钥加密技术对电子邮件进行加密</p>
+<p>​    3.使用公开密钥加密技术对文件或电子邮件做数字签名</p>
+<p>​    4.管理密钥。为用户配置密钥、分发密钥</p>
+<hr>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="IP地址分类"><a href="#IP地址分类" class="headerlink" title="IP地址分类"></a>IP地址分类</h3><p>私有地址地址分类</p>
+<p>A类地址：10.0.0.0～10.255.255.255<br>B类地址：172.16.0.0～172.31.255.255<br>C类地址：192.168.0.0～192.168.255.255</p>
+<p>所有地址分类</p>
+<p><img src="/images/crypto/IP-0.png"></p>
+<p><img src="/images/crypto/IP.png"></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><strong>计算机网络的定义：</strong></p>
+<p>把分布在不同地点且具有独立功能的多个<font color="ff0000">计算机系统</font>通过<font color="ff0000">通信设备</font>和<font color="ff0000">线路</font>连接起来，在功能完善的软件和协议的管理下<font color="ff0000">实现网络中资源共享</font>系统。</p>
+<p>扩展：</p>
+<p>​    1.计算机网络是<strong>通信技术</strong>与<strong>计算机技术</strong>的结合产物</p>
+<p>​    2.数据交换是基础，资源交换是目的。</p>
+<p><strong>多路复用</strong></p>
+<p>XDM XXDM   XDMX   都是多路复用 DM</p>
+<p>1.减少远距离通信时的线路开支</p>
+<p>2.降低信号通信时的线路带宽的浪费</p>
+<p>3.将多路信号在单一的传输线路上同时传输</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">频分多路复用：FDM</span><br><span class="line">时分多路复用：TDM</span><br><span class="line">	STDM：同步时分多路复用    所有的分段时间片都是固定的，固定分配</span><br><span class="line">	ATDM：异步时分多路复用    用的多 分配时间片多，动态分配</span><br><span class="line">空分多路复用：SDM   根据传输介质的线缆多少绝对速度，例如：一个网线内部8条线比4条要快</span><br><span class="line">波分多路复用：WDM   光波</span><br><span class="line"></span><br><span class="line">CDM 码分多路复用 ！！！</span><br><span class="line">CDMA 码分多址</span><br><span class="line">实例：</span><br><span class="line">ATM 异步传输模式，ehernet、以太网。使用异步时分多路复用技术   信元-53字节</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<hr>
+<h3 id="理论知识"><a href="#理论知识" class="headerlink" title="理论知识"></a>理论知识</h3><p>1.计算机网络由两大部分组成，分别是<strong>资源子网</strong>和<strong>通信子网</strong></p>
+<p>2.计算机网络分类：</p>
+<p>​    作用范围可分为：局域网、广域网、城域网、个域网(Pan)</p>
+<p>​    按照拓扑结构分类：星型网络、环型网络、总线型网络</p>
+<p>​    按照交换方式分类：电路交换网、报文交换网、分组交换网</p>
+<p>3.数字传输就是在信道上通过<strong>数字信号</strong>传输数据，<strong>应用于局域网</strong>传输，编码方式为<strong>曼彻斯特编码</strong></p>
+<p>4.在线路的接收端，通过<strong>解调器</strong>将收到的模拟信号解调还原为数字信号，整个过程利用<strong>调制解调器</strong></p>
+<p>5.网络层提供了<strong>虚电路</strong>和<strong>数据报</strong>两种网络服务。    虚电路与数据报一起出现</p>
+<p>6.分组交换采用<strong>存储转发</strong>技术，避免了电路交换的<strong>占线</strong>缺点</p>
+<p>7.用于<u>异构网</u>洛互联的网间连接器是<strong>网关</strong>。  异构网络：两端网络结构不同</p>
+<p>8.域名：.gov 政府 , .com 商业 .edu教育  .org非商业</p>
+<p>9.内部网关协议：RIP OSPF EIGRP，外部网关协议：BGP-边界网关协议-连接不同的自治系统</p>
+<p>10.邮件协议：</p>
+<p>​    接收：POP 110       IMAP</p>
+<p>​    发送：SMTP （MIME协议(通用因特网邮件扩充)，用于弥补SMTP的不足。<font color="ff0000" >MIME不负责发送</font>）</p>
+<p>11.CDMA(码分多址)采用的复用技术是：码分复用。   码分多址是码分复用的具体应用</p>
+<p>12.公用数据网是一种：通信子网</p>
+<p>13.通信子网的主要组成是：网络节点和通信链路</p>
+<p>14.网络协议的三个要素：<strong>语法、语义和时序</strong></p>
+<p>15.决定局域网新跟那个的主要技术要素：<strong>网络拓扑、传输介质、介质访问控制方式</strong></p>
+<p>16.线路通信方式</p>
+<p>​        1.单工通信    ：<strong>只有一个方向的通信</strong>而没有反方向的交互。例：广播，有线电视</p>
+<p>​        2.半双工通信：通信的双方都可以发送消息，但<strong>不能同时</strong>发送(也不能同时接收)，一方发送，另一方接收，过一段时间反过来。</p>
+<p>​        3.全双工通信：双方都可以<strong>同时</strong>发送和接收信息。</p>
+<p>17.数字数据的<strong>模拟信号</strong>编码分为三种方式：调幅（ASK）、调频（FSK）、调相（PSK）</p>
+<p>18.数字数据的<strong>数字信号</strong>编码分为三种方式：不归零码、曼彻斯特编码、差分曼彻斯特编码</p>
+<p>19.<strong>模拟</strong>数据的<strong>数字</strong>信号编码，使用PCM(脉冲编码调制)：</p>
+<p>​        发送端分为三个步骤：<strong>1.采样，2.量化，3.编码</strong></p>
+<p>​        接收端线要经过D/A转换，再经过低通滤波器还原成模拟</p>
+<p>下方是数字信号和模拟信号分别在数字信道和模拟信道上传输用到的技术↓↓↓</p>
+<p><img src="/images/crypto/%E4%BF%A1%E5%8F%B7.png"></p>
+<p>20.网际层协议包括：IP、ICMP、IGMP、ARP、RARP</p>
+<p>21.邮件传输问题如下图，左侧上传，右侧下载。MIME是类似于插件的东西</p>
+<p><img src="/images/crypto/email.png"></p>
+<p>22.网络层包含的功能：路由选择、流量控制(滑动窗口、停等协议(ACK,NAK))、拥塞控制</p>
+<p>23.差错控制：向前纠错(数据链路层)(举例:海明码)、反馈重传(停等、回退N帧(检错码,举例：奇偶校验、CRC)、选择重传)</p>
+<p><img src="/images/crypto/001.png"></p>
+<p>24.计算机资源共享的包括：硬件、软件、‘数据</p>
+<p>协议的三要素：语法、语义、时序</p>
+<p><img src="/images/crypto/002.png"></p>
+<p>25.FDDI：光纤分布式数据接口</p>
+<p>26.介质访问控制：CSMA/CD位于数据链路层的MAC子层(竞争型)   适用于总线型结构，阻塞信号。特点：监听再发、边听边发、冲突停止、延迟后再发；CSMA/CD会进行冲突检测功能</p>
+<p>27.MAC帧最小64字节(数据位46-1500)，在存储转发时最少发送64字节；直接转发时最小14个字节</p>
+<p>28.多模光纤：高贵细远</p>
+<p>29.发送方与接收方必须以某种方式实现同步。        同步技术↓↓↓</p>
+<p><img src="/images/crypto/%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF.png"></p>
+<p>30.<strong>香浓定理、奈奎斯特</strong></p>
+<p>31.<strong>中继器</strong>具有完全再生网络中传送的原有物理信号的能力，工作在物理层</p>
+<p>32.在网络中有线传输媒体主要包括：双绞线、同轴电缆(粗,细缆)、光纤</p>
+<p>33.DDN的全称是 <strong>数字数据网</strong></p>
+<p>34.传统以太网：10Mbps、快速LAN：100Mbps、千兆以太网：1000Mbps(半双工或全双工) 光纤、万兆：10G(只全双工) 光纤</p>
+<p>35.交换机所有端口都独享总带宽，集线器所有端口均分带宽(总带宽/所有端口数(当前不用的也算))</p>
+<p>36.<strong>网络层</strong>提供虚拟的、简单灵活的、无连接的、尽最大努力交付的、无质量保证的<strong>点对点服务</strong>；而<strong>传输层</strong>可以提供面向连接的、有序号确认的、有流量控制和拥塞控制的、有质量保证的<strong>端到端的服务</strong>。</p>
+<p>37.中继器、集线器是物理层设备；交换机、网桥是数据链路层设备；网桥隔离冲突域；路由器隔离广播域</p>
+<p>38.数据链路层的主要功能：差错控制、流量控制(滑动窗口)、提供对物理层的控制</p>
+<p>网络层的主要功能：路由选择、流量控制、拥塞控制</p>
+<p>39.使用半双工方式工作时要进行回路和冲突检测</p>
+<p>40.调制解调器功能：基带处理、调制解调、信号放大、均衡</p>
+<p>41.网络按通信方式分类：点对点传输网络、广播式传输网络</p>
+<hr>
+<h3 id="曼彻斯特编码与差分曼彻斯特编码"><a href="#曼彻斯特编码与差分曼彻斯特编码" class="headerlink" title="曼彻斯特编码与差分曼彻斯特编码"></a>曼彻斯特编码与差分曼彻斯特编码</h3><p>吴：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">曼彻斯特编码</span><br><span class="line">	1：向上跳变</span><br><span class="line">	0：向下跳变</span><br><span class="line">差分曼彻斯特编码</span><br><span class="line">	1：无跳变</span><br><span class="line">	0：有跳变</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<p>差分简易记法：无跳变就延长直着画，有跳变就上下拐弯画</p>
+<p><img src="/images/crypto/%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81.png"></p>
+<p><font color="ff0000">当未给定初始电平时，<strong>差分</strong>的起始电平默认与曼彻斯特相同</font></p>
+<p>虚线可用铅笔或者草纸上画出，画完后应擦除掉虚线</p>
+<p>曼彻斯特编码未连接的虚线处，在画完图后，将虚线全部擦除，连接处补上实线，连接成完整的图</p>
+<h3 id="CRC循环冗余校验码"><a href="#CRC循环冗余校验码" class="headerlink" title="CRC循环冗余校验码"></a>CRC循环冗余校验码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">此类题两种出法，两种考法</span><br><span class="line">出题方法：</span><br><span class="line">	1.给出二进制序列和F(X)，给出生成多项式G(X)=11001</span><br><span class="line">	2.给出二进制序列和F(X)，给出生成多项式G(X)=X^5 + X^4 + X^2 + 1</span><br><span class="line">第一种形式直接进行二进制除计算即可，注意阶数为4</span><br><span class="line">第二种形式需要先转化为第一种形式</span><br><span class="line">	转换方法：G(X)=X^5 + X^4 + X^2 + 1 = 1*X^5 + 1*X^4 + 0*X^3 + 1*X^2 + 0*X^1 +1*X^0 = 110101（也就是前面的系数）</span><br><span class="line">考法：</span><br><span class="line">	1.求CRC校验码（二进制除最后的余数），长度等于阶数</span><br><span class="line">	2.求(真正发送数据)CRC码（F(X)+二进制除余数）</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="例题1"><a href="#例题1" class="headerlink" title="例题1"></a>例题1</h4><p>差错控制编码—检错码—CRC</p>
+<p><img src="/images/crypto/CRC.png"></p>
+<p>解题思路：</p>
+<p>此题给的G(X)直接是多项式的系数11001</p>
+<p><font color="ff0000">像此题已经给了G(X)系数，下方第一步可不写</font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.还原多项式方法：G(X)=11001 = X^4 * 1 + X^3 * 1 + X^2 * 0 + X^1 * 0 + X^0 * 1</span><br><span class="line">						  =X^4+X^3+1</span><br><span class="line">						  由此，可以看出该多项式最高次系数=4，也就是多项式系数G(X)长度-1</span><br><span class="line"></span><br><span class="line">2.阶数=4，在F(X)二进制序列后补充 阶数个0</span><br><span class="line">3.使用第二部的结果去 ÷ 多项式系数G(X)——&gt;10010101100000 / 11001 ，进行二进制除，不进位，不借位</span><br><span class="line">	0-0=0   1-1=0   0-1=1   1-0=1</span><br><span class="line">4.每次除掉5位，即G(X)长度，除后的结果高位0可省略，然后每次向下取，如果不满足五位就得一个0，满足五位得一个1</span><br><span class="line">5.最后计算出的余数，即为 CRC校验码,CRC校验码长度=阶数，不足则高位补0</span><br><span class="line">	！！！如果式子刚好可以被整除，则CRC校验码为0000，因为阶数是4，所以4个0</span><br></pre></td></tr></table></figure>
+
+<p><font color="ff0000">小技巧：阶数 = 循环冗余校验码位数 = 多项式最高次系数 = len(G(X))-1</font></p>
+<p>下图是练习题的解题过程，</p>
+<p><img src="/images/crypto/CRC1.png"></p>
+<h4 id="例题2"><a href="#例题2" class="headerlink" title="例题2"></a>例题2</h4><p>这里是另一种情况，给出G(X)多项式，而不给系数的情况</p>
+<p>题目：待发送的二进制序列F(X)为：111001001，生成多项式G(X)=X^5 + X^4 + X^2 + 1，求此待发送二进制序列的<font color="ff0000">CRC校验码</font>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.计算生成多项式系数</span><br><span class="line">G(X)=X^5 + X^4 + X^2 + 1 = 1*X^5 + 1*X^4 + 0*X^3 + 1*X^2 + 0*X^1 +1*X^0 = 110101（也就是前面的系数）</span><br><span class="line">得到生成多项式系数G(X)=110101</span><br><span class="line">2.计算阶数：阶数=G(X)长度-1 = 5，所以取阶=5</span><br><span class="line">3.在F(X)二进制序列末尾添加阶数个0，即为111001001 00000   这里为了区分加了空格，实际不用</span><br><span class="line">4.用第三步的F(X)二进制除G(X)  得到余数1010，CRC校验码为：01010</span><br><span class="line">到这里就已经解完了</span><br><span class="line">5.发送数据=F(X)+CRC校验码=111001001 01010   这里为了区分加了空格，实际不用</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/crypto/CRC2.png"></p>
+<h4 id="例题3"><a href="#例题3" class="headerlink" title="例题3"></a>例题3</h4><p>求接收方收到的数据=CRC码=待发送数据+CRC校验码</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src="/images/crypto/CRC3.png"></h4><h4 id="例题4-发送数据"><a href="#例题4-发送数据" class="headerlink" title="例题4-发送数据"></a>例题4-发送数据</h4><p><img src="/images/crypto/CRC4.png"></p>
+<h4 id="例题5-接收数据"><a href="#例题5-接收数据" class="headerlink" title="例题5-接收数据"></a>例题5-接收数据</h4><p>如果余数为0，则说明传输没有出错</p>
+<p>那么在收到的二进制比特序列中去掉接CRC校验码(余数)后就能算出之前发送的数据是什么</p>
+<p><img src="/images/crypto/CRC5.png"></p>
+<h4 id="例题6"><a href="#例题6" class="headerlink" title="例题6"></a>例题6</h4><p>判断发送信息是否出错时，也是对多项式系数进行二进制除</p>
+<p>第1题的余数1110刚好是4位，与阶数4相同，所以不用高位补零了</p>
+<p>第2题<strong>余数不为0</strong>代表传输出错了</p>
+<p><img src="/images/crypto/CRC6.png"></p>
+<h4 id="例题7-求传送多项式T-X"><a href="#例题7-求传送多项式T-X" class="headerlink" title="例题7-求传送多项式T(X)"></a>例题7-求传送多项式T(X)</h4><p><img src="/images/crypto/CRC7.png"></p>
+<h4 id="子网划分计算-1"><a href="#子网划分计算-1" class="headerlink" title="子网划分计算-1"></a>子网划分计算-1</h4><p>有分类地址计算 2^n-2      ABCDE类</p>
+<p>无分类地址计算 2^n        /25，/26，/27…都叫做无分类地址</p>
+<p><img src="/images/crypto/IP-1-1.png"></p>
+<p><img src="/images/crypto/IP-1.png"></p>
+<h4 id="子网划分2-A类地址"><a href="#子网划分2-A类地址" class="headerlink" title="子网划分2-A类地址"></a>子网划分2-A类地址</h4><p>题目要求：某公司有13.0.0.0的网段，要分配给6个部门,每个部门需要60台主机，请求出每个部门的网络地址、广播地址、可用IP范围和子网掩码。</p>
+<p>答案：</p>
+<p><img src="/images/crypto/IP-2.png"></p>
+<p>子网掩码：</p>
+<p>网络：8+3=11位</p>
+<p>主机：24-3=21位</p>
+<p>所以子网掩码为：11个1，21个0——&gt;255.224.0.0</p>
+<p>解析：</p>
+<p>为什么6个部门的计算部分要2^n-2呢？   因为是分类地址，全0全1不可用</p>
+<h4 id="码分多址计算"><a href="#码分多址计算" class="headerlink" title="码分多址计算"></a>码分多址计算</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">已知：4个站的码片序列分别为：</span><br><span class="line">A:(-1 -1 -1 +1 +1 -1 +1 +1)</span><br><span class="line">B:(-1 -1 +1 -1 +1 +1 +1 -1)</span><br><span class="line">C:(-1 +1 -1 +1 +1 +1 -1 -1)</span><br><span class="line">D:(-1 +1 -1 -1 -1 -1 +1 -1)</span><br><span class="line">收到码片序列S：(-1 +1 -3 +1 -1 -3 +1 +1)</span><br><span class="line">问：哪个站发送数据了？发送的是0还是1？</span><br></pre></td></tr></table></figure>
+
+<p>方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">将站点与收到的码片序列S做规格化内积</span><br><span class="line">规格化内积：1/码片序列位数(8)*(A或B,C,D与S对应位置相乘结果再相加)</span><br><span class="line">三种计算结果如下：</span><br><span class="line">规格化内积为1：发送数据 -&gt; 1</span><br><span class="line">规格化内积为0：未发生数据</span><br><span class="line">规格化内积为-1：发送数据-&gt; 0</span><br></pre></td></tr></table></figure>
+
+<p>计算：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">A站:</span><br><span class="line">1/8*((-1*1)+(-1*+1)+(-1*-3)+(+1*+1)+(+1*-1)+(-1*-3)+(+1*+1)+(+1*+1))=1</span><br><span class="line">S与A站规格化内积为1，所以A站发送数据了，发送数据是1</span><br><span class="line"></span><br><span class="line">B站:</span><br><span class="line">1/8*((-1*-1)+(-1*+1)+(+1*-3)+(-1*+1)+(+1*-1)+(+1*-3)+(+1*+1)+(-1*+1))=-1</span><br><span class="line">S与B站规格化内积为-1，B站发送了数据，发送了0</span><br><span class="line"></span><br><span class="line">C站:</span><br><span class="line">0</span><br><span class="line">S与C站规格化内积为0，C站未发送数据</span><br><span class="line"></span><br><span class="line">D站:</span><br><span class="line">1</span><br><span class="line">S与D站规格化内积为1，D站发送了数据，发送的是1</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<hr>
+<h2 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h2><p>信息安全的目标是保护信息的机密性、完整性、保密性、可用性、可控性</p>
+<h2 id="计算机基础"><a href="#计算机基础" class="headerlink" title="计算机基础"></a>计算机基础</h2><p>计算机能处理的多媒体信息从时效性上又可分为两大类：静态媒体——包括文字、图形、图像；时变媒体——包括声音、动画、活动影像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">问：计算机的内存分为几种？每种的主要功能是什么</span><br><span class="line">答：分为RAM,ROM,CACHE</span><br><span class="line">ROM是只读存储器，不能写入信息，</span><br><span class="line">RAM是随机存储器，其中的信息具有易失性，关机断电易丢失</span><br><span class="line">CACHE是高速缓存，弥补了内存与CPU之间的速度差异</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">问：TCP/IP协议的含义是什么？TCP/IP参考模型分为那几层？</span><br><span class="line">答：TCP/IP含义是传输控制协议/网际协议，是internet的标准协议</span><br><span class="line">	TCP/IP分为：链路接入层、网际层、传输层、应用层</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>1、Alt+ PrintScreen：在使用Print Screen进行屏幕抓bai图时，同时按下Alt键，就会只抓取当前du活动窗口。</p>
+<p>2、PrintScreen：对整个屏幕进行截图。</p>
+<h3 id="计算机基础-选择-简答"><a href="#计算机基础-选择-简答" class="headerlink" title="计算机基础-选择+简答"></a>计算机基础-选择+简答</h3><h4 id="一、计算机概述"><a href="#一、计算机概述" class="headerlink" title="一、计算机概述"></a>一、计算机概述</h4><p>1.问：计算机的性能指标</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">答：  以下三点</span><br><span class="line">1.CPU的快慢（速度、主频、周期）</span><br><span class="line">2.CPU的精度（1.字，2.字长）</span><br><span class="line">3.内存的容量（RAM）</span><br></pre></td></tr></table></figure>
+
+<p>2.问：计算机的分类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">答：按照计算机性能分类，一共分为以下五类</span><br><span class="line">1.微机（单用户）</span><br><span class="line">2.小型机</span><br><span class="line">3.中型机</span><br><span class="line">4.大型机</span><br><span class="line">5.巨型机</span><br><span class="line">2-5均为多用户机器</span><br></pre></td></tr></table></figure>
+
+<p>3.问：计算机发展史</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">答：考法有以下几种</span><br><span class="line">1.第一台计算机：1946年   美国   ENIAC  5000/秒</span><br><span class="line">2.按电子元件分类：4个时代</span><br><span class="line">	1.第一代：电子管（1946-1958）</span><br><span class="line">	2.第二代：晶体管（1958-1964）</span><br><span class="line">	3.第三代：集成电路或小规模集成电路（1964-1971）</span><br><span class="line">	4.第四代：大规模或超大规模集成电路（1971-至今）</span><br><span class="line">	81年才有PC机(微机)</span><br></pre></td></tr></table></figure>
+
+<p>4.问：计算机的特点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">答：</span><br><span class="line">1.速度快</span><br><span class="line">2.精度高</span><br><span class="line">3.容量大（记忆判断、逻辑判断）</span><br><span class="line">4.程序控制自动完成</span><br><span class="line">5.可靠性强</span><br><span class="line">6.通用性强</span><br><span class="line"></span><br><span class="line">突出特点：</span><br><span class="line">存储和程序控制</span><br></pre></td></tr></table></figure>
+
+<p>5.问：计算机的应用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">答：</span><br><span class="line">1.科学计算</span><br><span class="line">2.数据处理</span><br><span class="line">3.过程控制</span><br><span class="line">4.人工智能</span><br><span class="line">5.信息高速公路（网络化）</span><br><span class="line">6.计算机辅助功能</span><br><span class="line">	CAD 计算机辅助设计</span><br><span class="line">	CAM 计算机辅助制造</span><br><span class="line">	CAI 计算机辅助教学</span><br><span class="line">	CAT 计算机辅助测试</span><br></pre></td></tr></table></figure>
+
+<p><strong>6.计算机系统的组成（重点）</strong></p>
+<p>计算机系统由硬件和软件组成，主要考察硬件如下</p>
+<p><img src="/images/crypto/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90.png"></p>
+<p>第二种考法，计算机的五大组成：<strong>运算器、控制器、存储器、输入设备、输出设备</strong></p>
+<p><img src="/images/crypto/%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%88%86%E7%B1%BB.png"></p>
+<p>7.问：计算机内部采用二进制的优点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.实现简单，运算规则简单</span><br><span class="line">2.适合逻辑处理</span><br></pre></td></tr></table></figure>
+
+<p>8.问：位、字节、字、字长的含义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">答：</span><br><span class="line">1.位（bit）  数据(计算机用)和信息(人用)的最小单位</span><br><span class="line">2.字节（Byte）  存储器容量最小单位   1B=8bit</span><br><span class="line">3.字（word）  计算机内部数据存储、数据处理的最小单位</span><br><span class="line">4.字长        字的长度       1字= ? bit   ?不是固定值</span><br></pre></td></tr></table></figure>
+
+<p>9.问：汉字编码的内容</p>
+<p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1836307276288071620.html">https://zhidao.baidu.com/question/1836307276288071620.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">答：</span><br><span class="line">1.键盘-&gt;外码（输入码）</span><br><span class="line">2.内存-&gt;国际码或BCD码（转换）、 机内码（存储） -&gt;大小2Byte</span><br><span class="line">3.屏幕-&gt;字形码（输出码）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/crypto/%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81.png"></p>
+<h4 id="二、网络、病毒及多媒体计算机"><a href="#二、网络、病毒及多媒体计算机" class="headerlink" title="二、网络、病毒及多媒体计算机"></a>二、网络、病毒及多媒体计算机</h4><p>1.网络定义</p>
+<p><img src="/images/crypto/%E7%BD%91%E7%BB%9C%E7%BB%84%E6%88%90.png"></p>
+<p>2.OSI协议、TCP/IP协议及结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OSI/RM   开放式系统互联模型     网络技术标准协议</span><br><span class="line">	7层结构</span><br><span class="line">TCP/IP   传输控制协议/网间协议  internet专用协议</span><br><span class="line">	4层结构 </span><br></pre></td></tr></table></figure>
+
+<p>3.网络分类及功能</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.按照网络规模分类(覆盖范围)</span><br><span class="line">	局域网 LAN   &lt;10km</span><br><span class="line">	城域网 MAN   10-100km</span><br><span class="line">	广域网 WAN   &gt;100km</span><br><span class="line">2.按照网络功能分类</span><br><span class="line">	资源共享（硬件、软件、数据）</span><br><span class="line">	数据传输</span><br><span class="line">	数据分布处理</span><br><span class="line">	综合信息服务</span><br><span class="line">  前两个是主要功能</span><br></pre></td></tr></table></figure>
+
+<p>4.<strong>internet的组成（重点）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.主机</span><br><span class="line">2.路由器</span><br><span class="line">3.通信线路</span><br><span class="line">4.信息资源</span><br></pre></td></tr></table></figure>
+
+<p>5.<strong>internet地址表示方法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.IP地址</span><br><span class="line">2.域名</span><br><span class="line">IP地址与域名的关系</span><br><span class="line">	一个IP对应多个域名</span><br></pre></td></tr></table></figure>
+
+<p>6.<strong>域名的格式、域名服务器、域名解析</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.格式：计算机名.三级域名.二级域名.顶级域名 例如：blog.falsectf.top   blog是主机名</span><br><span class="line">	com  商业</span><br><span class="line">	org  非商业</span><br><span class="line">	gov  政府</span><br><span class="line">	edu  教育</span><br><span class="line">	mil  军事</span><br><span class="line">	net  网络组织</span><br><span class="line">	cn   中国</span><br><span class="line">	us   美国</span><br><span class="line">	jp   日本</span><br><span class="line">	</span><br><span class="line">2.域名服务器：存放IP地址与域名对照表</span><br><span class="line">3.域名解析：通过DNS服务器，将域名解析为对应的IP地址</span><br></pre></td></tr></table></figure>
+
+<p>7.<strong>internet接入方式；ISP提供的服务</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">接入方式：</span><br><span class="line">	窄带：</span><br><span class="line">		拨号上网</span><br><span class="line">		ISDN</span><br><span class="line">	宽带：</span><br><span class="line">		公用电话网-ADSL</span><br><span class="line">		有线电视网-CATV</span><br><span class="line">		局域网-LAN</span><br><span class="line">		无线接入：</span><br><span class="line">			4G</span><br><span class="line">			WIFI（wlan）</span><br><span class="line">			</span><br><span class="line">ISP提供的服务：</span><br><span class="line">	接入服务</span><br><span class="line">	信息服务</span><br></pre></td></tr></table></figure>
+
+<p>8.<strong>internet提供的主要服务</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.信息查询（HTTP、WWW）</span><br><span class="line">2.电子邮件（SMTP发-25、POP3收-110）</span><br><span class="line">3.文件传输（FTP）</span><br><span class="line">4.远程登陆（telnet）</span><br><span class="line">5.电子公告版（BBS）</span><br></pre></td></tr></table></figure>
+
+<p>9.概念：HTML、网页、URL、URI</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTML:超文本标记语言</span><br><span class="line">网页：解析HTML文件，在浏览器中使用</span><br><span class="line">URL：统一资源定位符，网络信息文件存在的位置   具体都某一个网页</span><br><span class="line">URI：统一资源标识符</span><br></pre></td></tr></table></figure>
+
+<p>10.电子邮件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">协议：</span><br><span class="line">	SMTP -22 -简单邮件传输协议</span><br><span class="line">	POP3 -110 -邮局协议</span><br><span class="line">邮件地址：</span><br><span class="line">	用户名@主机名</span><br><span class="line">邮件内容：</span><br><span class="line">	文件-附件</span><br><span class="line">	文本</span><br><span class="line">	图片等</span><br></pre></td></tr></table></figure>
+
+<p>11.文件传输</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">协议：</span><br><span class="line">	FTP</span><br><span class="line">工作模式：</span><br><span class="line">	客户机/服务器</span><br><span class="line">工作方式：</span><br><span class="line">	下载上传</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">False</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.falsectf.top/2020/02/07/ddf09cfd.html">http://blog.falsectf.top/2020/02/07/ddf09cfd.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.falsectf.top" target="_blank">False</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Crypto/">Crypto</a></div><div class="post_share"><div class="social-share" data-image="/img/1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2020/02/28/8dc0.html"><img class="prev-cover" src="/img/featureimages/16.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hexo搭建-matery主题</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">False</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" href="http://blog.falsectf.top/"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">给博客换了一个新的主题！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">古典密码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81"><span class="toc-number">1.1.</span> <span class="toc-text">凯撒密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%B9%E6%A0%B9%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">培根密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81"><span class="toc-number">1.3.</span> <span class="toc-text">维吉尼亚密码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E8%A7%84%E5%88%99%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">加密规则：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%AF%86%E8%A7%84%E5%88%99%EF%BC%9A"><span class="toc-number">1.3.2.</span> <span class="toc-text">解密规则：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">第二种算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%85%E6%A0%8F%E5%AF%86%E7%A0%81%E2%80%93%E7%BD%AE%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">1.4.</span> <span class="toc-text">栅栏密码–置换密码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E8%A7%84%E5%88%99"><span class="toc-number">1.4.1.</span> <span class="toc-text">加密规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%AF%86%E8%A7%84%E5%88%99"><span class="toc-number">1.4.2.</span> <span class="toc-text">解密规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Playfair-%E5%AF%86%E7%A0%81"><span class="toc-number">1.5.</span> <span class="toc-text">Playfair 密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%EF%BC%88%E5%88%97%EF%BC%89%E6%8D%A2%E4%BD%8D%E5%AF%86%E7%A0%81"><span class="toc-number">1.6.</span> <span class="toc-text">矩阵（列）换位密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%9E%BA%E6%97%8B%E7%BD%AE%E6%8D%A2"><span class="toc-number">1.7.</span> <span class="toc-text">螺旋置换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RSA%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86"><span class="toc-number">1.8.</span> <span class="toc-text">RSA加密与解密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EDS-S%E7%9B%92"><span class="toc-number">1.9.</span> <span class="toc-text">EDS-S盒</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MD5-%E4%BF%A1%E6%81%AF%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95-%E6%B6%88%E6%81%AF%E9%89%B4%E5%88%AB"><span class="toc-number">1.10.</span> <span class="toc-text">MD5-信息摘要算法-消息鉴别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SHA-%E5%AE%89%E5%85%A8%E6%95%A3%E5%88%97%E7%AE%97%E6%B3%95-%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-number">1.11.</span> <span class="toc-text">SHA-安全散列算法-数字签名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PGP-%E4%BC%98%E8%89%AF%E4%BF%9D%E5%AF%86%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.12.</span> <span class="toc-text">PGP-优良保密协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="toc-number">2.</span> <span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB"><span class="toc-number">2.1.</span> <span class="toc-text">IP地址分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">2.2.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86"><span class="toc-number">2.3.</span> <span class="toc-text">理论知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81%E4%B8%8E%E5%B7%AE%E5%88%86%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81"><span class="toc-number">2.4.</span> <span class="toc-text">曼彻斯特编码与差分曼彻斯特编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CRC%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A0%A1%E9%AA%8C%E7%A0%81"><span class="toc-number">2.5.</span> <span class="toc-text">CRC循环冗余校验码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%981"><span class="toc-number">2.5.1.</span> <span class="toc-text">例题1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%982"><span class="toc-number">2.5.2.</span> <span class="toc-text">例题2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%983"><span class="toc-number">2.5.3.</span> <span class="toc-text">例题3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.5.4.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%984-%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE"><span class="toc-number">2.5.5.</span> <span class="toc-text">例题4-发送数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%985-%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE"><span class="toc-number">2.5.6.</span> <span class="toc-text">例题5-接收数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%986"><span class="toc-number">2.5.7.</span> <span class="toc-text">例题6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%987-%E6%B1%82%E4%BC%A0%E9%80%81%E5%A4%9A%E9%A1%B9%E5%BC%8FT-X"><span class="toc-number">2.5.8.</span> <span class="toc-text">例题7-求传送多项式T(X)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86%E8%AE%A1%E7%AE%97-1"><span class="toc-number">2.5.9.</span> <span class="toc-text">子网划分计算-1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%862-A%E7%B1%BB%E5%9C%B0%E5%9D%80"><span class="toc-number">2.5.10.</span> <span class="toc-text">子网划分2-A类地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A0%81%E5%88%86%E5%A4%9A%E5%9D%80%E8%AE%A1%E7%AE%97"><span class="toc-number">2.5.11.</span> <span class="toc-text">码分多址计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8"><span class="toc-number">3.</span> <span class="toc-text">网络安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">4.</span> <span class="toc-text">计算机基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">4.1.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80-%E9%80%89%E6%8B%A9-%E7%AE%80%E7%AD%94"><span class="toc-number">4.2.</span> <span class="toc-text">计算机基础-选择+简答</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0"><span class="toc-number">4.2.1.</span> <span class="toc-text">一、计算机概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%BD%91%E7%BB%9C%E3%80%81%E7%97%85%E6%AF%92%E5%8F%8A%E5%A4%9A%E5%AA%92%E4%BD%93%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="toc-number">4.2.2.</span> <span class="toc-text">二、网络、病毒及多媒体计算机</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/02/452.html" title="数据结构">数据结构</a><time datetime="2021-01-02T09:54:13.000Z" title="发表于 2021-01-02 17:54:13">2021-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/27/fe8aaca1.html" title="启明星辰杯决赛"><img src="/images/AWD/2020-%E5%90%AF%E6%98%8E%E6%98%9F%E8%BE%B0/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="启明星辰杯决赛"/></a><div class="content"><a class="title" href="/2020/12/27/fe8aaca1.html" title="启明星辰杯决赛">启明星辰杯决赛</a><time datetime="2020-12-27T03:00:39.000Z" title="发表于 2020-12-27 11:00:39">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/13/57c1f6bc.html" title="PHP变量覆盖学习"><img src="/images/logo/php-%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PHP变量覆盖学习"/></a><div class="content"><a class="title" href="/2020/08/13/57c1f6bc.html" title="PHP变量覆盖学习">PHP变量覆盖学习</a><time datetime="2020-08-13T14:55:03.000Z" title="发表于 2020-08-13 22:55:03">2020-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/06/4e16e28a.html" title="Volatility&amp;mimikatz"><img src="/images/logo/Volatility.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Volatility&amp;mimikatz"/></a><div class="content"><a class="title" href="/2020/08/06/4e16e28a.html" title="Volatility&amp;mimikatz">Volatility&amp;mimikatz</a><time datetime="2020-08-06T02:24:22.000Z" title="发表于 2020-08-06 10:24:22">2020-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/07/26/bf2843ff.html" title="WEB-文件包含-学习踩坑"><img src="/images/logo/file_include.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WEB-文件包含-学习踩坑"/></a><div class="content"><a class="title" href="/2020/07/26/bf2843ff.html" title="WEB-文件包含-学习踩坑">WEB-文件包含-学习踩坑</a><time datetime="2020-07-26T05:43:35.000Z" title="发表于 2020-07-26 13:43:35">2020-07-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/featureimages/16.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By False</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a  href="icp链接"><img  class="icp-icon"  src="/img/icp.png"><span>备案号:辽ICP备20001056号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'Ag2uepRff9ApH80TgBsjY86F-gzGzoHsz',
+      appKey: 'wz6QtWNN51S4GBYV3ef1fYwW',
+      placeholder: '记得留下你的ID和邮箱....可以快速收到回复',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
